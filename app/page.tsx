@@ -33,9 +33,15 @@ export default function Home() {
               Vercel is designed with developers in mind, and it shows. From the
               moment you sign up, the platform guides you through the deployment
               process with an ease that's almost addictive. Whether you're
-              deploying a static site, a serverless function, or a complex
-              Next.js application, Vercel has streamlined the experience so that
-              even a novice can get their project live with minimal friction.
+              deploying a static site, a serverless function, or a complex{" "}
+              <a
+                className="text-[#1565c0] no-underline transition-all ease-in duration-200 hover:underline"
+                href="https://nextjs.org/"
+              >
+                Next.js
+              </a>{" "}
+              application, Vercel has streamlined the experience so that even a
+              novice can get their project live with minimal friction.
             </div>
 
             <div>
