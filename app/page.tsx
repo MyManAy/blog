@@ -49,12 +49,15 @@ export default function Home() {
               GitHub. Just push your changes to the main branch, and Vercel
               handles the rest. There's no need for manual configuration or
               tedious setups—Vercel's smart enough to recognize your project's
-              framework and adjust accordingly. This level of automation is a
-              game-changer for productivity, allowing me to focus more on
-              writing code and less on managing deployments. The dashboard is
-              another area where Vercel shines. It's clean, intuitive, and
-              provides all the necessary information at a glance.
+              framework and adjust accordingly. This level of automation is a{" "}
+              <b className={bold.className}>game-changer</b> for productivity,
+              allowing me to focus more on writing code and less on managing
+              deployments. The dashboard is another area where Vercel shines.
+              It's clean, intuitive, and provides all the necessary information
+              at a glance.
             </div>
+          </div>
+        </div>
 
             <div>
               I can monitor my deployments,
