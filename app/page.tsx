@@ -108,6 +108,8 @@ export default function Home() {
               effectively.
             </div>
 
+            <hr className="border-stone-950" />
+
             <div>
               What's particularly frustrating is that many of the features that
               make Vercel so appealing, such as advanced analytics or enhanced
