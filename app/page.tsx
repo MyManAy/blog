@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Fira_Code, Mulish } from "next/font/google";
@@ -73,8 +72,8 @@ export default function Home() {
               </code>
               , and manage environments without jumping through hoops. The
               thoughtful design makes it a pleasure to use, turning what could
-              be a stressful part of development into something I actually look
-              forward to.
+              be a stressful part of development into something I{" "}
+              <i>actually</i> look forward to.
             </div>
 
             <SyntaxHighlighter
