@@ -78,23 +78,32 @@ export default function Home() {
             </div>
 
             <SyntaxHighlighter
-              language="jsx"
+              language="typescript"
               style={dracula}
               codeTagProps={{
                 style: { ...firaCode.style, scrollPaddingLeft: "0.5em" },
               }}
               wrapLongLines
             >
-              {`import Image from "next/image";
+              {`const summaryRanges = (nums: number[]) => {
+  let ranges: string[] = [];
+  let start = 0;
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      Contact
-    </main>
-  );
-}
-`}
+  if (nums.length === 0) return [];
+
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[i - 1] + 1) {
+      if (i <= start + 1) ranges.push(nums[start].toString());
+      else ranges.push(\`\${nums[start]}->\${nums[i - 1]}\`);
+      start = i;
+    }
+  }
+
+  if (start === nums.length - 1) ranges.push(nums[start].toString());
+  else ranges.push(\`\${nums[start]}->\${nums[nums.length - 1]}\`);
+
+  return ranges;
+};`}
             </SyntaxHighlighter>
           </div>
         </div>
