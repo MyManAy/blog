@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     siteName: "Nithin's Blog",
     images: [
       {
-        url: "https://nextjs.org/og-alt.png", // Must be an absolute URL
-        width: 1800,
-        height: 1600,
+        url: "https://raw.githubusercontent.com/gitdagray/my-blogposts/main/images/og-card.png", // Must be an absolute URL
+        width: 1200,
+        height: 630,
         alt: "My custom alt",
       },
     ],
