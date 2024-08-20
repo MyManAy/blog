@@ -57,10 +57,14 @@ export default function Home() {
             </div>
 
             <div>
-              I can monitor my deployments, view logs, and manage environments
-              without jumping through hoops. The thoughtful design makes it a
-              pleasure to use, turning what could be a stressful part of
-              development into something I actually look forward to.
+              I can monitor my deployments,
+              <code className="px-2 py-1 text-inherit bg-stone-200 rounded text-sm">
+                view logs
+              </code>
+              , and manage environments without jumping through hoops. The
+              thoughtful design makes it a pleasure to use, turning what could
+              be a stressful part of development into something I actually look
+              forward to.
             </div>
             <SyntaxHighlighter
               language="jsx"
