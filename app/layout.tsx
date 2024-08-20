@@ -1,7 +1,7 @@
 // "use client";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Mulish } from "next/font/google";
 import "./globals.css";
 import {
   NavigationMenu,
@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 import NavbarMenuItem from "@/components/ui/NavbarMenuItem";
 import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Mulish({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <section className="m-auto max-w-[60rem] px-[2rem] py-6">
+        <section className="m-auto max-w-[60rem] px-[2rem] py-3">
           <NavigationMenu className="max-w-full justify-between">
             <NavigationMenuList className="gap-3">
               <Image
