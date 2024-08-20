@@ -3,13 +3,14 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Fira_Code, Mulish } from "next/font/google";
 const firaCode = Fira_Code({ subsets: ["latin"] });
+const bold = Mulish({ weight: "800", subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col justify-between py-20">
       <article className="flex flex-col gap-10">
         <div>
-          <header className="text-4xl font-black">
+          <header className={`text-4xl ${bold.className}`}>
             My Love/Hate Relationship With Vercel
           </header>
           <div className="font-thin pt-2 opacity-50">
@@ -24,11 +25,13 @@ export default function Home() {
           of fresh air.
         </div>
 
+        <h1 className="text-3xl font-bold">
+          The Beauty of Vercel's User Experience
+        </h1>
+
         <div>
-          <h1 className="text-3xl font-bold">
-            The Beauty of Vercel's User Experience
-          </h1>
-          <div className="flex flex-col gap-y-6 text-lg font-light opacity-80 pt-8">
+          <div className="flex flex-col gap-y-6 text-lg font-light opacity-80">
+            <h2 className="text-2xl font-bold">A Seamless Workflow</h2>
             <div>
               Vercel is designed with developers in mind, and it shows. From the
               moment you sign up, the platform guides you through the deployment
@@ -59,6 +62,10 @@ export default function Home() {
           </div>
         </div>
 
+        <div>
+          <div className="flex flex-col gap-y-6 text-lg font-light opacity-80">
+            <h2 className="text-2xl font-bold">Developer Focused Features</h2>
+
             <div>
               I can monitor my deployments,
               <code className="px-2 py-1 text-inherit bg-stone-200 rounded text-sm">
@@ -69,6 +76,7 @@ export default function Home() {
               be a stressful part of development into something I actually look
               forward to.
             </div>
+
             <SyntaxHighlighter
               language="jsx"
               style={dracula}
@@ -90,11 +98,13 @@ export default function Home() {
             </SyntaxHighlighter>
           </div>
         </div>
+
+        <h1 className="text-3xl font-bold">
+          The Frustration of Vercel's Pricing
+        </h1>
+
         <div>
-          <h1 className="text-3xl font-bold">
-            The Frustration of Vercel's Pricing
-          </h1>
-          <div className="flex flex-col gap-y-6 text-lg font-light opacity-80 pt-8">
+          <div className="flex flex-col gap-y-6 text-lg font-light opacity-80">
             <div>
               However, this love affair hits a snag when it comes to Vercel's
               pricing. For small projects or personal use, the free tier is
@@ -143,7 +153,7 @@ export default function Home() {
               act. I adore the ease of use, the thoughtful design, and the power
               it gives me as a developer. Yet, I can't ignore the frustration
               that comes with the pricing model. It's a platform that's almost
-              perfect—almost.
+              perfect—almost. ♥️
             </div>
           </div>
         </div>
