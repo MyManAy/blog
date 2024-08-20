@@ -1,20 +1,10 @@
-// "use client";
-
 import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "./globals.css";
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
 import NavbarMenuItem from "@/components/ui/NavbarMenuItem";
 import Image from "next/image";
 
@@ -28,10 +18,10 @@ export const metadata: Metadata = {
     siteName: "Nithin's Blog",
     images: [
       {
-        url: "https://raw.githubusercontent.com/gitdagray/my-blogposts/main/images/og-card.png", // Must be an absolute URL
-        width: 1200,
-        height: 630,
-        alt: "My custom alt",
+        url: "https://blog.nithinmonni.com/opengraph.png", // Must be an absolute URL
+        width: 730,
+        height: 260,
+        alt: "My custom opengraph",
       },
     ],
     locale: "en_US",
