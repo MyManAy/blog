@@ -16,7 +16,7 @@ export default function component({
   return (
     <NavigationMenuItem
       className={cn(
-        "block select-none space-y-2 rounded-md p-3 no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-md font-medium leading-none"
+        "block select-none space-y-2 rounded-md p-3 no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-md font-black leading-none"
       )}
     >
       <Link href={route} legacyBehavior passHref>
