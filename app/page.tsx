@@ -1,4 +1,8 @@
 import Image from "next/image";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Fira_Code, Mulish } from "next/font/google";
+const firaCode = Fira_Code({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -52,6 +56,25 @@ export default function Home() {
               pleasure to use, turning what could be a stressful part of
               development into something I actually look forward to.
             </div>
+            <SyntaxHighlighter
+              language="jsx"
+              style={dracula}
+              codeTagProps={{
+                style: { ...firaCode.style, scrollPaddingLeft: "0.5em" },
+              }}
+              wrapLongLines
+            >
+              {`import Image from "next/image";
+
+export default function Home() {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      Contact
+    </main>
+  );
+}
+`}
+            </SyntaxHighlighter>
           </div>
         </div>
         <div>
