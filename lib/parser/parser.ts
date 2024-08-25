@@ -213,4 +213,14 @@
       const language = codeSnippet.exec(words[0])![1];
       matchedLanguage = language;
       continue;
+    // "```"
+    if (words[0] === "```") {
+      matchedCodeSnippet = false;
+      continue;
+    }
+
+    if (matchedCodeSnippet) {
+      addCodeSnippetLine();
+      continue;
+    }
     }
