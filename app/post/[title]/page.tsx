@@ -4,6 +4,14 @@ import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Fira_Code, Mulish } from "next/font/google";
 const firaCode = Fira_Code({ subsets: ["latin"] });
 const bold = Mulish({ weight: "800", subsets: ["latin"] });
+import { promises as fs } from "fs";
+
+export async function generateStaticParams() {
+  const posts = await fs.readdir("/posts");
+
+  return posts.map((item) => ({ title: item.replace(".md", "") }));
+}
+
 export default async function Home({
   params: { title },
 }: {
