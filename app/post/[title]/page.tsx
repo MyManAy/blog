@@ -7,7 +7,7 @@ const bold = Mulish({ weight: "800", subsets: ["latin"] });
 import { promises as fs } from "fs";
 
 export async function generateStaticParams() {
-  const posts = await fs.readdir("/posts");
+  const posts = await fs.readdir("./public/posts");
 
   return posts.map((item) => ({ title: item.replace(".md", "") }));
 }

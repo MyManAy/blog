@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 
 export default async function parseMarkdown(postFile: string) {
-  const file = await fs.readFile(`/posts/${postFile}`, "utf8");
+  const file = await fs.readFile(`./public/posts/${postFile}`, "utf8");
   const lines = file.split("\n");
 
   const date = new Date(lines[0]);
