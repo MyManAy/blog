@@ -1,3 +1,6 @@
+import { promises as fs } from "fs";
+
+export default async function parseMarkdown(postFile: string) {
   const file = await fs.readFile(`/posts/${postFile}`, "utf8");
   const lines = file.split("\n");
 
@@ -58,6 +61,16 @@
     | { type: "href"; text: string; link: string }
     | { type: "line" }
   )[][][];
+  let data: Data = [];
+  let matchedCodeSnippet = false;
+  let matchedLanguage = "";
+  let dataIndex = 1;
+  data.push([[{ type: "title", text: title, info: infoString }]]);
+
+  for (const line of lines) {
+    // console.log(line, dataIndex, data.length)
+    const words = line.split(" ");
+
     const codeSnippet = /```([A-Za-z]+)/;
 
     const addCodeSnippetLine = () => {
@@ -89,6 +102,7 @@
           [{ type: "code-snippet", text: line, language: matchedLanguage }],
         ]);
     };
+
     const parseBlock = (text: string) => {
       type Block = Data[0][0];
       let block: Block = [];
@@ -213,6 +227,8 @@
       const language = codeSnippet.exec(words[0])![1];
       matchedLanguage = language;
       continue;
+    }
+
     // "```"
     if (words[0] === "```") {
       matchedCodeSnippet = false;
@@ -249,4 +265,4 @@
     }
   }
   return data;
-    }
+}
