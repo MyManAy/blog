@@ -195,3 +195,13 @@
 
       return block;
     };
+
+    // empty line but inside code snippet adds newline
+    if (matchedCodeSnippet && words[0] === "") {
+      addCodeSnippetLine();
+      continue;
+    } else if (words[0] === "") {
+      // otherwise, ignore empty lines
+      continue;
+    }
+
