@@ -58,6 +58,35 @@
     | { type: "href"; text: string; link: string }
     | { type: "line" }
   )[][][];
+    const addCodeSnippetLine = () => {
+      if (dataIndex === data.length - 1) {
+        if (data[dataIndex].at(-1)?.at(-1)?.type === "code-snippet") {
+          const blockLength = data[dataIndex].length;
+          const paragraphLength = data[dataIndex][blockLength - 1].length;
+
+          // has to be a length 1 because code snippets can not have strongs or italics
+          if (paragraphLength === 1) {
+            const lastCodeSnippet = data[dataIndex][blockLength - 1][0] as {
+              type: "code-snippet";
+              text: string;
+              language: string;
+            };
+
+            // if you put a python code snippet right after another one, they will join together
+            if (lastCodeSnippet.language === matchedLanguage) {
+              (data[dataIndex][blockLength - 1][0] as any).text += `\n${line}`;
+            }
+          }
+        } else {
+          data[dataIndex].push([
+            { type: "code-snippet", text: line, language: matchedLanguage },
+          ]);
+        }
+      } else
+        data.push([
+          [{ type: "code-snippet", text: line, language: matchedLanguage }],
+        ]);
+    };
     const parseBlock = (text: string) => {
       type Block = Data[0][0];
       let block: Block = [];
