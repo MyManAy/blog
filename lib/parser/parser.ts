@@ -58,6 +58,8 @@
     | { type: "href"; text: string; link: string }
     | { type: "line" }
   )[][][];
+    const codeSnippet = /```([A-Za-z]+)/;
+
     const addCodeSnippetLine = () => {
       if (dataIndex === data.length - 1) {
         if (data[dataIndex].at(-1)?.at(-1)?.type === "code-snippet") {
@@ -205,3 +207,10 @@
       continue;
     }
 
+    // "```language"
+    if (!matchedCodeSnippet && codeSnippet.test(words[0])) {
+      matchedCodeSnippet = true;
+      const language = codeSnippet.exec(words[0])![1];
+      matchedLanguage = language;
+      continue;
+    }
