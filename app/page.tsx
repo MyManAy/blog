@@ -9,6 +9,8 @@ export default function Home() {
     <main className="flex min-h-screen flex-col justify-between py-20">
       <article className="flex flex-col gap-10">
         <div>
+          {" "}
+          {/* Title and info */}
           <header className={`text-4xl ${bold.className}`}>
             My Love/Hate Relationship With Vercel
           </header>
@@ -18,6 +20,8 @@ export default function Home() {
         </div>
 
         <div className="text-lg font-light opacity-80">
+          {" "}
+          {/* Paragraph */}
           As a developer, finding the perfect platform to deploy your projects
           is like finding the right tool for a complex task—it can make or break
           your workflow. When I first discovered Vercel, it felt like a breath
@@ -25,13 +29,19 @@ export default function Home() {
         </div>
 
         <h1 className="text-3xl font-bold">
+          {" "}
+          {/* Heading */}
           The Beauty of Vercel's User Experience
         </h1>
 
         <div>
+          {" "}
+          {/* Paragraph */}
           <div className="flex flex-col gap-y-6 text-lg font-light opacity-80">
             <h2 className="text-2xl font-bold">A Seamless Workflow</h2>
             <div>
+              {" "}
+              {/* Paragraph */}
               Vercel is designed with developers in mind, and it shows. From the
               moment you sign up, the platform guides you through the deployment
               process with an ease that's almost addictive. Whether you're
