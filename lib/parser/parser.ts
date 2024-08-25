@@ -58,3 +58,111 @@
     | { type: "href"; text: string; link: string }
     | { type: "line" }
   )[][][];
+    const parseBlock = (text: string) => {
+      type Block = Data[0][0];
+      let block: Block = [];
+      let matchedCode = false;
+      let matchedBold = false;
+      let matchedItalics = false;
+      let matchedHrefText = false;
+      let expectingHrefLink = false;
+      let matchedHrefLink = false;
+
+      let built = "";
+      let builtLink = "";
+      for (const letter of text) {
+        const isCode = letter === "`";
+        const isItalics = letter === "_";
+        const isBold = letter === "*";
+
+        if (matchedCode) {
+          if (isCode) {
+            matchedCode = false;
+            block.push({ type: "code", text: built });
+            built = "";
+          } else {
+            built += letter;
+          }
+        } else if (matchedBold) {
+          if (isBold) {
+            matchedBold = false;
+            block.push({ type: "bold", text: built });
+            built = "";
+          } else {
+            built += letter;
+          }
+        } else if (matchedItalics) {
+          if (isItalics) {
+            matchedItalics = false;
+            block.push({ type: "italic", text: built });
+            built = "";
+          } else {
+            built += letter;
+          }
+        } else if (matchedHrefText) {
+          if (letter === "]") {
+            matchedHrefText = false;
+            expectingHrefLink = true;
+          } else {
+            built += letter;
+          }
+        } else if (expectingHrefLink) {
+          if (letter !== "(") {
+            throw new Error("expected href link '('");
+          } else {
+            expectingHrefLink = false;
+            matchedHrefLink = true;
+          }
+        } else if (matchedHrefLink) {
+          if (letter === ")") {
+            matchedHrefLink = false;
+            block.push({ type: "href", text: built, link: builtLink });
+            built = "";
+            builtLink = "";
+          } else {
+            builtLink += letter;
+          }
+        } else {
+          if (
+            isCode ||
+            isBold ||
+            isItalics ||
+            letter === "(" ||
+            letter === "["
+          ) {
+            block.push({ type: "paragraph", text: built });
+            built = "";
+            if (isCode) matchedCode = true;
+            else if (isItalics) matchedItalics = true;
+            else if (isBold) matchedBold = true;
+            else if (letter === "[") matchedHrefText = true;
+          } else {
+            built += letter;
+          }
+        }
+      }
+
+      const lastLetter = text[text.length - 1];
+      if (
+        lastLetter !== "`" &&
+        lastLetter !== "*" &&
+        lastLetter !== "_" &&
+        lastLetter !== "]" &&
+        lastLetter !== ")"
+      ) {
+        if (
+          matchedBold ||
+          matchedCode ||
+          matchedItalics ||
+          matchedHrefLink ||
+          matchedHrefText
+        ) {
+          throw new Error(
+            "unclosed code, bold, italics, href link, or href text"
+          );
+        }
+        block.push({ type: "paragraph", text: built });
+      }
+
+      return block;
+    };
