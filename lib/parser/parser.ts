@@ -223,4 +223,30 @@
       addCodeSnippetLine();
       continue;
     }
+
+    if (words[0] === "#") {
+      words.shift();
+      dataIndex++;
+      data.push([[{ type: "heading", text: words.join(" ") }]]);
+      dataIndex++;
+      continue;
+    } else if (words[0] === "##") {
+      words.shift();
+      if (dataIndex < data.length) dataIndex++;
+      data.push([[{ type: "sub-heading", text: words.join(" ") }]]);
+      continue;
+    } else if (line === "---") {
+      if (dataIndex == data.length - 1)
+        data[dataIndex].push([{ type: "line" }]);
+      else {
+        data.push([[{ type: "line" }]]);
+      }
+    } else {
+      if (dataIndex == data.length - 1) data[dataIndex].push(parseBlock(line));
+      else {
+        data.push([parseBlock(line)]);
+      }
+    }
+  }
+  return data;
     }
