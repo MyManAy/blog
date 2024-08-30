@@ -1,19 +1,29 @@
 import { promises as fs } from "fs";
 
 export default async function parseMarkdown(postFile: string) {
-  const file = await fs.readFile(`./public/posts/${postFile}`, "utf8");
-  const lines = file.split("\n");
+  const postsDirectory =
+    process.env.VERCEL_ENV === "production"
+      ? `./public/posts/${postFile}`
+      : `/posts/${postFile}`;
 
-  const date = new Date(lines[0]);
-  const title = lines[1];
+  const file = await fs.readFile(postsDirectory, "utf8");
+
+  let lines = file.split("\n");
+
+  const date = new Date(lines.shift()!);
+  const title = lines.shift();
+  const emoji = lines.shift();
+
+  if (!date || !title || !emoji) {
+    throw new Error(
+      "Date, title, or emoji are not present within the first 3 lines of markdown doc"
+    );
+  }
 
   let words = 0;
   for (const line of lines) {
     for (const _word of line.split(" ")) words++;
   }
-
-  lines.shift();
-  lines.shift();
 
   type Data = (
     | {
@@ -27,7 +37,7 @@ export default async function parseMarkdown(postFile: string) {
         text: string;
       }
     | { type: "code-snippet"; text: string; language: string }
-    | { type: "title"; text: string; date: Date; words: number }
+    | { type: "title"; text: string; date: Date; words: number; emoji: string }
     | { type: "href"; text: string; link: string }
     | { type: "line" }
   )[][][];
@@ -35,7 +45,9 @@ export default async function parseMarkdown(postFile: string) {
   let matchedCodeSnippet = false;
   let matchedLanguage = "";
   let dataIndex = 1;
-  data.push([[{ type: "title", text: title, date: date, words: words }]]);
+  data.push([
+    [{ type: "title", text: title, date: date, words: words, emoji: emoji }],
+  ]);
 
   for (const line of lines) {
     // console.log(line, dataIndex, data.length)
