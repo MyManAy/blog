@@ -1,10 +1,7 @@
 import { promises as fs } from "fs";
 
 export default async function parseMarkdown(postFile: string) {
-  const postsDirectory =
-    process.env.VERCEL_ENV === "production"
-      ? `./public/posts/${postFile}`
-      : `/posts/${postFile}`;
+  const postsDirectory = `./public/posts/${postFile}`;
 
   const file = await fs.readFile(postsDirectory, "utf8");
 

@@ -8,8 +8,7 @@ import { promises as fs } from "fs";
 import { getArticleInfo } from "@/lib/utils";
 
 export async function generateStaticParams() {
-  const postsDirectory =
-    process.env.VERCEL_ENV === "production" ? `./public/posts` : `/posts`;
+  const postsDirectory = `./public/posts`;
 
   const posts = await fs.readdir(postsDirectory);
 
