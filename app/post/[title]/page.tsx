@@ -5,6 +5,7 @@ import { Fira_Code, Mulish } from "next/font/google";
 const firaCode = Fira_Code({ subsets: ["latin"] });
 const bold = Mulish({ weight: "800", subsets: ["latin"] });
 import { promises as fs } from "fs";
+import { getArticleInfo } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const posts = await fs.readdir("./public/posts");
@@ -31,7 +32,7 @@ export default async function Home({
                   {item[0][0].text}
                 </header>
                 <div className="font-thin pt-2 opacity-50">
-                  {item[0][0].info}
+                  {getArticleInfo(item[0][0].date, item[0][0].words)}
                 </div>
               </div>
             );

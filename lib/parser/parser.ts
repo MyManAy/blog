@@ -12,36 +12,6 @@ export default async function parseMarkdown(postFile: string) {
     for (const _word of line.split(" ")) words++;
   }
 
-  const daysOfTheWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const monthsOfTheYear = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
-  const infoString = `Posted ${daysOfTheWeek[date.getDay()]}, ${
-    monthsOfTheYear[date.getMonth()]
-  } ${date.getDate()}, ${date.getFullYear()} - ${words} words, ~${Math.ceil(
-    words / 200
-  )} minutes`;
-
   lines.shift();
   lines.shift();
 
@@ -57,7 +27,7 @@ export default async function parseMarkdown(postFile: string) {
         text: string;
       }
     | { type: "code-snippet"; text: string; language: string }
-    | { type: "title"; text: string; info: string }
+    | { type: "title"; text: string; date: Date; words: number }
     | { type: "href"; text: string; link: string }
     | { type: "line" }
   )[][][];
@@ -65,7 +35,7 @@ export default async function parseMarkdown(postFile: string) {
   let matchedCodeSnippet = false;
   let matchedLanguage = "";
   let dataIndex = 1;
-  data.push([[{ type: "title", text: title, info: infoString }]]);
+  data.push([[{ type: "title", text: title, date: date, words: words }]]);
 
   for (const line of lines) {
     // console.log(line, dataIndex, data.length)
