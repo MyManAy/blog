@@ -8,7 +8,10 @@ import { promises as fs } from "fs";
 import { getArticleInfo } from "@/lib/utils";
 
 export async function generateStaticParams() {
-  const posts = await fs.readdir("./public/posts");
+  const postsDirectory =
+    process.env.VERCEL_ENV === "production" ? `./public/posts` : `/posts`;
+
+  const posts = await fs.readdir(postsDirectory);
 
   return posts.map((item) => ({ title: item.replace(".md", "") }));
 }

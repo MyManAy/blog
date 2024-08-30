@@ -4,7 +4,9 @@ import { Fira_Code, Mulish } from "next/font/google";
 const firaCode = Fira_Code({ subsets: ["latin"] });
 const bold = Mulish({ weight: "800", subsets: ["latin"] });
 
-export default function Home() {
+  const postsDirectory =
+    process.env.VERCEL_ENV === "production" ? `./public/posts` : `/posts`;
+  const fileNames = await fs.readdir(postsDirectory);
   return (
     <main className="flex min-h-screen flex-col justify-between py-20">
       <article className="flex flex-col gap-10">
