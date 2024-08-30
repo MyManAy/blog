@@ -35,3 +35,8 @@ export const getArticleInfo = (date: Date, words: number) =>
   } ${date.getDate()}, ${date.getFullYear()} - ${words} words, ~${Math.ceil(
     words / 200
   )} minutes`;
+
+export const getArticleInfoShortened = (date: Date) =>
+  `${
+    monthsOfTheYear[date.getMonth()]
+  } ${date.getDate()}, ${date.getFullYear()}`;
