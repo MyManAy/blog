@@ -7,13 +7,6 @@ const bold = Mulish({ weight: "800", subsets: ["latin"] });
 
 export const dynamic = "force-static";
 
-type Posts = {
-  title: string;
-  date: Date;
-  emoji: string;
-  route: string;
-};
-
 export default async function Home() {
   const postsDirectory =
     process.env.VERCEL_ENV === "production" ? `./public/posts` : `/posts`;
@@ -28,7 +21,6 @@ export default async function Home() {
         "title expected as first element of parsed markdown data"
       );
     }
-    console.log(file.replace(".md", ""));
 
     posts.push({
       title: title.text,

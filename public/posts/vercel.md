@@ -1,5 +1,6 @@
 08/20/2024
 My Love/Hate Relationship With Vercel
+▲
 
 As a developer, finding the perfect platform to deploy your projects is like finding the right tool for a complex task—it can make or break your workflow. When I first discovered Vercel, it felt like a breath of fresh air.
 

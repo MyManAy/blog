@@ -11,6 +11,7 @@ import Image from "next/image";
 const inter = Mulish({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  title: "Nithin's Blog",
   openGraph: {
     title: "Nithin's Blog",
     description: "The React Framework for the Web",
