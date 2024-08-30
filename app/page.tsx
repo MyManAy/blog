@@ -8,14 +8,11 @@ const bold = Mulish({ weight: "800", subsets: ["latin"] });
 export const dynamic = "force-static";
 
 export default async function Home() {
-  console.log("hello");
-
   const postsDirectory = `./public/posts`;
   const fileNames = await fs.readdir(postsDirectory);
 
   let posts = [];
-  for (const file in fileNames) {
-    console.log(file);
+  for (const file of fileNames) {
     const data = await parseMarkdown(file);
     const title = data[0][0][0];
     if (title.type !== "title") {
@@ -23,13 +20,6 @@ export default async function Home() {
         "title expected as first element of parsed markdown data"
       );
     }
-
-    console.log({
-      title: title.text,
-      date: title.date,
-      emoji: title.emoji,
-      route: file.replace(".md", ""),
-    });
 
     posts.push({
       title: title.text,
