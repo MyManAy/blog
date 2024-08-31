@@ -14,14 +14,14 @@ export default function component({
   route: Url;
 }) {
   return (
-    <NavigationMenuItem
-      className={cn(
-        "block select-none space-y-2 rounded-md p-3 no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-md font-black leading-none"
-      )}
-    >
-      <Link href={route} legacyBehavior passHref>
+    <Link href={route} legacyBehavior passHref>
+      <NavigationMenuItem
+        className={
+          "cursor-pointer block select-none space-y-2 rounded-md p-3 no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-md font-black leading-none"
+        }
+      >
         <NavigationMenuLink>{text}</NavigationMenuLink>
-      </Link>
-    </NavigationMenuItem>
+      </NavigationMenuItem>
+    </Link>
   );
 }
