@@ -24,7 +24,7 @@ While Andrea used an already existing Markdown-to-HTML compiler, I wanted to try
 
 The thing about blogs is that they don't require much changing data. All of the data in a blog is present before the app even gets deployed. A user changing routes and interacting with the website doesn't make any changes to the underlying data. In fact, my entire blog post is statically generated during build time, meaning no client-side _or_ any server-side data fetching. 
 
-That's why reading a blog _feels_ so fast. You're essentially being served *raw* HTML and CSS. In fact, try [disabling Javascript](https://developer.chrome.com/docs/devtools/javascript/disable) in your browser to see this in action. The site will still run exactly the same because it is static.
+That's why reading a blog _feels_ so fast. You're essentially being served *raw* HTML and CSS. In fact, try [disabling Javascript](https://developer.chrome.com/docs/devtools/javascript/disable) in your browser to see this in action. The site will still run exactly the same because it is uses static rendering.
 
 ---
 
@@ -139,7 +139,7 @@ I've already explained my love for Next.js being my web framework, but what abou
 
 ## Typescript
 
-You can use either Javascript or Typescript to write your Next.js application, but Typescript will always be my go-to choice. The only place I'd use JS is for small pieces of code that perform a single function, like something you would code up for a technical interview about a DSA question. Any more complex than that, and I'd take the extra steps (_not like there are many_) to set up TS in my project. It catches pesky errors, avoids unintended behavior, and does all this with very capable type inference. 
+You can use either Javascript or Typescript to write your Next.js application, but Typescript will always be my go-to choice. The only place I'd use JS is for small pieces of code that perform a single function, like something you would code up for a technical interview about a DSA question. Any more complex than that, and I'd take the extra steps _(not like there are many)_ to set up TS in my project. It catches pesky errors, avoids unintended behavior, and does all this with very capable type inference. 
 
 ## Tailwind
 
@@ -184,7 +184,7 @@ Rewritten using Tailwind
 
 ## Deployment
 
-There's no point in developing a blog that no one is going to see. At that point, you're just writing notes. Now, because I use Next.js so much, the obvious choice is to deploy on [Vercel](https://vercel.com/). Developed by the same team as Next, it makes deploying my app as simple as connecting my Github repo to my domain. Also, isn't it so nice to just have your own [domain](https://www.nithinmonni.com/)? 
+There's no point in developing a blog that no one is going to see. At that point, you're just writing notes. Now, because I use Next.js so much, the obvious choice is to deploy on [Vercel](https://vercel.com/). Developed by the same team as Next, it makes deploying my app as simple as connecting my Github repo to my domain. Also, _completely unrelated to Vercel_, but isn't it so nice to just have your own [domain](https://www.nithinmonni.com/)? 
 
 ## Developer Tools
 
