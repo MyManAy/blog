@@ -103,6 +103,7 @@ export default async function parseMarkdown(postFile: string) {
 
         if (escaped) {
           built += letter;
+          escaped = false;
         } else if (isEscape) {
           escaped = true;
         } else if (matchedCode) {

@@ -16,7 +16,7 @@ His attention to detail is one of a kind. From the left-hand sidebar that shows 
 
 _Ah, a fellow tea addict_. I stumbled across [Andrea Bergia's Blog](https://andreabergia.com/) while researching blogs that use Markdown. I'd like to preface this by saying that *most* of the design of my blog is based upon his website. It seemed very simple to code up, and I needed that because the last thing I'd want to do was get stuck formatting `<div>` tags with CSS and Tailwind. Writing was my goal, not frontend design. 
 
-While Andrea used an already existing Markdown-to-HTML compiler, I wanted to try compiling it on my own. This allowed me to have a bigger range of custimizability when it came to my CSS, although it stopped me from adding *many* markdown features just because I was too lazy (_and yes, I did kind of completely ignore the whole "writing-first goal" from before_).
+While Andrea used an already existing Markdown-to-HTML compiler, I wanted to try compiling it on my own. This allowed me to have a bigger range of custimizability when it came to my CSS, although it stopped me from adding *many* markdown features just because I was too lazy \(_and yes, I did kind of completely ignore the whole "writing-first goal" from before_\).
 
 # A Different System
 
