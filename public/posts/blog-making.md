@@ -143,7 +143,7 @@ You can use either Javascript or Typescript to write your Next.js application, b
 
 ## Tailwind
 
-Now, Tailwind styling over CSS has always been a bit more contraversial of a choice than TS vs. JS. If there's one thing I hate more than coding with JS, it's coding CSS, so I'd *love* to be able to turn off my brain while doing so. Luckily, Tailwind allows me to do exactly that. The learning curve is really not as bad as people make it out to be, and it's so much more efficient than writing plain CSS.
+Now, Tailwind styling over CSS has always been a bit more controversial of a choice than TS vs. JS. If there's one thing I hate more than coding with JS, it's coding CSS, so I'd *love* to be able to turn off my brain while doing so. Luckily, Tailwind allows me to do exactly that. The learning curve is really not as bad as people make it out to be, and it's so much more efficient than writing plain CSS.
 
 Plain CSS
 
