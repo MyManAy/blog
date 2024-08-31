@@ -91,6 +91,7 @@ export default async function parseMarkdown(postFile: string) {
       let matchedHrefText = false;
       let expectingHrefLink = false;
       let matchedHrefLink = false;
+      let escaped = false;
 
       let built = "";
       let builtLink = "";
@@ -98,8 +99,13 @@ export default async function parseMarkdown(postFile: string) {
         const isCode = letter === "`";
         const isItalics = letter === "_";
         const isBold = letter === "*";
+        const isEscape = letter === "\\";
 
-        if (matchedCode) {
+        if (escaped) {
+          built += letter;
+        } else if (isEscape) {
+          escaped = true;
+        } else if (matchedCode) {
           if (isCode) {
             matchedCode = false;
             block.push({ type: "code", text: built });

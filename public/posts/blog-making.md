@@ -139,7 +139,7 @@ I've already explained my love for Next.js being my web framework, but what abou
 
 ## Typescript
 
-You can use either Javascript or Typescript to write your Next.js application, but Typescript will always be my go-to choice. The only place I'd use JS is for small pieces of code that perform a single function, like something you would code up for a technical interview about a DSA question. Any more complex than that, and I'd take the extra steps _(not like there are many)_ to set up TS in my project. It catches pesky errors, avoids unintended behavior, and does all this with very capable type inference. 
+You can use either Javascript or Typescript to write your Next.js application, but Typescript will always be my go-to choice. The only place I'd use JS is for small pieces of code that perform a single function, like something you would code up for a technical interview about a DSA question. Any more complex than that, and I'd take the extra steps \(_not like there are many_\) to set up TS in my project. It catches pesky errors, avoids unintended behavior, and does all this with very capable type inference. 
 
 ## Tailwind
 
